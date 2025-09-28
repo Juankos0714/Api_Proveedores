@@ -1,0 +1,90 @@
+### Base URL
+@baseUrl = http://localhost:8080/api/proveedores
+
+### 1. Crear un nuevo proveedor
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nombre": "Proveedores S.A.",
+  "documento": "12345678901",
+  "telefono": "555-0123",
+  "correo": "contacto@proveedores.com"
+}
+
+### 2. Crear otro proveedor para pruebas
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nombre": "Distribuidora El Éxito",
+  "documento": "98765432109",
+  "telefono": "555-9876",
+  "correo": "ventas@elexito.com"
+}
+
+### 3. Obtener todos los proveedores
+GET {{baseUrl}}
+Accept: application/json
+
+### 4. Obtener proveedor por ID
+GET {{baseUrl}}/1
+Accept: application/json
+
+### 5. Actualizar proveedor
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "nombre": "Proveedores S.A. - Actualizado",
+  "telefono": "555-0999"
+}
+
+### 6. Actualizar proveedor
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "nombre": "Mega Proveedores Ltda.",
+  "documento": "12345678901",
+  "telefono": "555-1111",
+  "correo": "info@megaproveedores.com",
+  "estado": true
+}
+
+### 7. Cambiar estado del proveedor
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "estado": false
+}
+
+### 8. Cambiar estado del proveedor
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "estado": true
+}
+
+### 9. Eliminar proveedor
+DELETE {{baseUrl}}/1
+
+### 10. Intentar obtener proveedor eliminado
+GET {{baseUrl}}/1
+Accept: application/json
+
+### 11. Intentar actualizar proveedor que no existe
+PUT {{baseUrl}}/999
+Content-Type: application/json
+
+{
+  "nombre": "Proveedor Inexistente"
+}
+
+### 12. Intentar eliminar proveedor que no existe
+DELETE {{baseUrl}}/999
+
+
+
